@@ -104,23 +104,23 @@ const Login = () => {
 
 
   return (
-    <section className='flex justify-center items-center h-[100vh] bg-gray-700'>
-      <div className='p-4 flex items-center justify-center flex-col gap-2 bg-gray-100 shadow-2xl rounded-lg max-w-xs w-full'>
+    <section className='flex justify-center items-center h-[100vh] bg-gray-900'>
+      <div className='p-4 flex items-center justify-center flex-col gap-2 bg-gray-700 shadow-2xl rounded-lg max-w-xs w-full'>
         {isLogin ? (
           <div className='w-full text-center'>  
-          <h4>Login</h4>
+          <h4 className='text-white py-2 font-semibold'>Login</h4>
           <form onSubmit={handleLogin} className='flex flex-col gap-2'>
             <input type="text" placeholder="Username" value={username.value} onChange={username.changeHandler} className='p-2 border-2 rounded-md' />
             <input type="password" value={password.value} onChange={password.changeHandler} placeholder="Password" className='p-2 border-2 rounded-md' />
             <button disabled={isLoading} type="submit" className={`${isLoading? ' bg-blue-300':''} p-2 bg-blue-500 text-white rounded-md`}>Login</button>
-            <span className='text-center'>OR</span>
+            <span className='text-center text-white'>OR</span>
             <button disabled={isLoading} onClick={toggleLogin}
-             type="button" className='text-black text-center'>Sign Up instead</button>
+             type="button" className='text-center text-gray-400'>Sign Up instead</button>
           </form>
           </div>
           ) : (
           <div className='w-full text-center'>
-          <h4>Sign Up</h4>
+          <h4 className='text-white py-2 font-semibold'>Sign Up</h4>
           <form onSubmit={handleSignUp} className='flex flex-col gap-2'>
 
             <div className='self-center relative h-[10rem] w-[10rem]'>
@@ -140,10 +140,10 @@ const Login = () => {
             {username.error && <span className='text-red-400 text-sm text-center'>{username.error}</span>}
             
             <input type="password" value={password.value} onChange={password.changeHandler} placeholder="Password" className='p-2 border-2 rounded-md' />
-            <button disabled={isLoading} type="submit" className={`${isLoading? 'bg-blue-300' : ''} 'p-2 bg-blue-500 text-white rounded-md`}>Sign Up</button>
-            <span className='text-center'>OR</span>
+            <button disabled={isLoading} type="submit" className={`${isLoading? 'bg-blue-300' : ''} p-2 bg-blue-500 text-white rounded-md`}>Sign Up</button>
+            <span className='text-center text-white'>OR</span>
             <button disabled={isLoading} onClick={toggleLogin}
-             type="button" className='text-black text-center'>Login instead</button>
+             type="button" className='text-center text-gray-400'>Login instead</button>
           </form>
           </div>
         )}
