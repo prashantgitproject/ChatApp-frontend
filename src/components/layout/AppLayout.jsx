@@ -17,6 +17,7 @@ import {
 import { NEW_MESSAGE_ALERT, NEW_REQUEST, ONLINE_USERS, REFETCH_CHATS } from '../../constants/events'
 import { getOrSaveFromStorage } from '../../libs/features'
 import DeleteChatMenu from '../dialogs/DeleteChatMenu'
+import Loader from '../shared/Loader'
 
 const AppLayout = () => (WrappedComponent) => {
   return (props) => {
@@ -96,12 +97,15 @@ const AppLayout = () => (WrappedComponent) => {
         />
 
         {isLoading ? (
-          <Skeleton />
+          <Loader />
         ) : (
           <Drawer open={isMobile} onClose={handleMobileClose}>
             <div className=' bg-[#001019] h-full'>
               <div className='w-[70vw] bg-[#232d36] h-full rounded-lg'>
-                <h1 className='text-center font-semibold text-cyan-500 shadow-md text-xl p-2'>YoChat</h1>
+                <div className='flex items-center p-4 border-b cursor-pointer' onClick={() => navigate('/')}>
+                <img className='h-[4rem] w-[4rem]' src="/babble.png" alt="logo" />
+                <h1 className='text-center font-semibold text-cyan-500 text-xl p-2'>Babble</h1>
+                </div>
                 <ChatList
                   chats={data?.chats}
                   chatId={chatId}
@@ -116,7 +120,7 @@ const AppLayout = () => (WrappedComponent) => {
 
         <section className=' grid grid-cols-12 bg-[#001019] h-[calc(100vh-4rem)]'>
             <div className='hidden sm:block sm:col-span-4 md:col-span-3 p-4 ' style={{height: '100%'}}>
-              {isLoading? (<Skeleton/>) : 
+              {isLoading? (<Loader/>) : 
                 (<ChatList chats={data?.chats} chatId={chatId} handleDeleteChat={handleDeleteChat} newMessagesAlert={newMessagesAlert} onlineUsers={onlineUsers}/>)
               }
             </div>

@@ -68,7 +68,10 @@ const Header = () => {
       <section className='h-[100%] static flex justify-center items-center p-1 '>
         <div className='static bg-[#232d36] grow h-full text-white rounded-lg px-2'>
           <div className='flex gap-1 items-center h-full'>
-            <h6 className='hidden sm:block text-xl text-cyan-500 font-semibold'>YoChat</h6>
+            <div className='hidden md:flex gap-1 items-center cursor-pointer' onClick={() => navigate('/')}>
+              <img className='h-[4rem] w-[4rem]' src="/babble.png" alt="logo" />
+              <h6 className='hidden sm:block text-xl text-cyan-500 font-semibold'>Babble</h6>
+            </div>
             <button className='block sm:hidden' onClick={handleMobile}><Menu/></button>
             <div className='flex-grow'/>
             <div className='flex gap-8'>

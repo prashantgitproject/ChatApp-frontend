@@ -15,7 +15,7 @@ const ChatList = ({
     handleDeleteChat,
 }) => {
   return (
-    <div className={`flex flex-col gap-1 w-[${w}] overflow-y-auto h-[100%] bg-[#232d36] rounded-lg`}>
+    <div className={`flex flex-col gap-1 w-[${w}] overflow-y-auto h-[100%] bg-[#232d36] rounded-lg md:p-0`}>
         {chats?.map((data, index) => {
             const {avatar, _id, name, groupChat, members} = data;
 

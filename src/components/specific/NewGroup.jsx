@@ -55,13 +55,13 @@ const NewGroup = () => {
 
   return (
     <Dialog open={isNewGroup} onClose={closeHandler}>
-      <div className='flex flex-col p-4 sm:p-8 w-[25rem] gap-4 text-white bg-[#253546]'>
+      <div className='flex flex-col p-8 md:w-[25rem] gap-4 text-white bg-[#253546]'>
         <h5 className='text-center text-xl'>New Group</h5>
         <input className='p-2 border bg-[#526279] border-none rounded-lg outline-none' type="text" 
          value={groupName.value} onChange={groupName.changeHandler} placeholder='Group Name'/>
         <h6>Members</h6>
 
-        <div className='flex flex-col gap-1'>
+        <div className='flex flex-col gap-1 '>
           {isLoading? (<Skeleton/>) : (
             data?.friends?.map(i => (
               <UserItem user={i} key={i._id} handler={selectMemberHandler} isAdded={selectedMembers.includes(i._id)}/>

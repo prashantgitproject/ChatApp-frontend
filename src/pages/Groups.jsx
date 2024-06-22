@@ -213,7 +213,7 @@ const GroupsList = ({w='100%', myGroups=[], chatId}) => (
   <div className={`flex flex-col gap-1 w-[${w}] bg-[#132130] h-[100vh] overflow-y-scroll text-white`}>
     {
       myGroups.length > 0 ? myGroups.map((group) => <GroupListItem key={group._id} group={group} chatId={chatId}/>) :
-      <p className='text-center p-4'>No Groups</p>
+      <p className='text-center p-4'>No Groups to manage</p>
     }
   </div>
 )

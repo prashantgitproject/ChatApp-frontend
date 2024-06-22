@@ -49,8 +49,8 @@ const Search = () => {
  
 
   return (
-    <Dialog open={isSearch} onClose={searchCloseHandler}>
-      <div className='flex flex-col gap-4 p-8 w-[25rem] text-white bg-[#253546]'>
+    <Dialog open={isSearch} onClose={searchCloseHandler} sx={{height: {xs:'85%', sm: '100%'}}} >
+      <div className='flex flex-col gap-4 p-8 md:w-[25rem] text-white bg-[#253546] justify-center items-center'>
         <h5 className='text-center text-xl'>Find People</h5>
         <div className='relative flex items-center'>
             <SearchRounded className='absolute left-3 bottom-[7px]'/>

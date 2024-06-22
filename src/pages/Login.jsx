@@ -105,17 +105,21 @@ const Login = () => {
 
   return (
     <section className='flex justify-center items-center h-[100vh] bg-gray-900'>
-      <div className='p-4 flex items-center justify-center flex-col gap-2 bg-gray-700 shadow-2xl rounded-lg max-w-xs w-full'>
+      <div className='fixed top-2 flex gap-1 items-center cursor-pointer'>
+        <img className='h-[4rem] w-[4rem]' src="/babble.png" alt="logo" />
+        <h6 className='text-xl text-cyan-500 font-semibold'>Babble</h6>
+      </div>
+      <div className='p-4 flex items-center justify-center flex-col gap-2 bg-[#292e36] shadow-2xl shadow-[#25e2ff40] rounded-lg max-w-xs w-full'>
         {isLogin ? (
           <div className='w-full text-center'>  
           <h4 className='text-white py-2 font-semibold'>Login</h4>
           <form onSubmit={handleLogin} className='flex flex-col gap-2'>
             <input type="text" placeholder="Username" value={username.value} onChange={username.changeHandler} className='p-2 border-2 rounded-md' />
             <input type="password" value={password.value} onChange={password.changeHandler} placeholder="Password" className='p-2 border-2 rounded-md' />
-            <button disabled={isLoading} type="submit" className={`${isLoading? ' bg-blue-300':''} p-2 bg-blue-500 text-white rounded-md`}>Login</button>
+            <button disabled={isLoading} type="submit" className={`${isLoading? ' bg-blue-300':''} p-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-md`}>Login</button>
             <span className='text-center text-white'>OR</span>
             <button disabled={isLoading} onClick={toggleLogin}
-             type="button" className='text-center text-gray-400'>Sign Up instead</button>
+             type="button" className='text-center text-cyan-400'>Sign Up instead</button>
           </form>
           </div>
           ) : (
@@ -127,7 +131,7 @@ const Login = () => {
             <Avatar sx={{  width: "10rem", height: "10rem", objectFit: "contain",}} src={avatar.preview}/>
               <label type='button' className='rounded-full p-1 absolute bottom-0 right-0 text-white bg-slate-700 hover:bg-slate-900'>
                 <CameraAlt/>
-                <input type="file" id="file" className='absolute hidden' onChange={avatar.changeHandler}/>
+                <input type="file" id="file" required={true} className='absolute hidden' onChange={avatar.changeHandler}/>
               </label>
             </div>
 
@@ -140,10 +144,10 @@ const Login = () => {
             {username.error && <span className='text-red-400 text-sm text-center'>{username.error}</span>}
             
             <input type="password" value={password.value} onChange={password.changeHandler} placeholder="Password" className='p-2 border-2 rounded-md' />
-            <button disabled={isLoading} type="submit" className={`${isLoading? 'bg-blue-300' : ''} p-2 bg-blue-500 text-white rounded-md`}>Sign Up</button>
+            <button disabled={isLoading} type="submit" className={`${isLoading? 'bg-blue-300' : ''} p-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-md`}>Sign Up</button>
             <span className='text-center text-white'>OR</span>
             <button disabled={isLoading} onClick={toggleLogin}
-             type="button" className='text-center text-gray-400'>Login instead</button>
+             type="button" className='text-center text-cyan-400'>Login instead</button>
           </form>
           </div>
         )}

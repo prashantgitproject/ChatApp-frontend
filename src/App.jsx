@@ -8,6 +8,7 @@ import { userExists, userNotExists } from './redux/reducers/auth'
 import {server} from '../src/constants/config'
 import { Toaster } from 'react-hot-toast'
 import { SocketProvider } from './socket'
+import Loader from './components/shared/Loader'
 
 const Home = lazy(() => import('./pages/Home'))
 const Login = lazy(() => import('./pages/Login'))
@@ -35,10 +36,10 @@ const App = () => {
     
   }, [dispatch])
 
-  return loader? (<LayoutLoader/>) :
+  return loader? (<Loader/>) :
    (
     <BrowserRouter>
-      <Suspense fallback={<LayoutLoader/>}>
+      <Suspense fallback={<Loader/>}>
         <Routes>
           <Route element={ <SocketProvider> <ProtectRoute user={user} /> </SocketProvider> }>
             <Route path="/" element={<Home/>} />

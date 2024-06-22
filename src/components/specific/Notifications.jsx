@@ -38,7 +38,7 @@ const Notifications = () => {
 
   return (
     <Dialog open={isNotification} onClose={closeHandler}>
-      <div className='flex flex-col p-4 sm:p-8 w-[25rem] bg-[#253546] text-white'>
+      <div className='flex flex-col p-4 sm:p-8 md:w-[25rem] bg-[#253546] text-white'>
       <h5 className='text-center text-xl'>Friend Requests</h5>
       { isLoading? (<Skeleton/>) : 
         ( <>
@@ -46,7 +46,7 @@ const Notifications = () => {
               data?.allRequests.map(({sender, _id}) => (
                 <NotificationItem key={_id} sender={sender} _id={_id} handler={friendRequestHandler} rejectRef={rejectRef}/>
               ))
-            ): <h5 className='text-center text-lg'>0 Notifications</h5> }
+            ): <h5 className='text-center text-lg p-4'>0 Notifications</h5> }
           </> )
       }
       </div>
@@ -58,15 +58,17 @@ const NotificationItem = memo(({sender, _id, handler, rejectRef}) => {
   const {name, avatar} = sender;
   return(
     <div className='text-white'>
-        <div className='flex gap-4 items-center w-full mt-2'>
+        <div className='flex justify-between gap-16 items-center w-full mt-2'>
+          <div className='flex gap-1 justify-center items-center'>
             <Avatar src={transformImage(avatar)} alt={name} sx={{ width: 40, height: 40 }}/>
             <h6 className='  w-full md:me-8'>
               {name}
             </h6>
-            <div className='xs:flex xs:flex-col gap-8 sm:flex'>
-              <button className='text-blue-400' onClick={() => handler({_id, accept:true})}>Accept</button>
-              <button ref={rejectRef} className='text-red-300' onClick={() => handler({_id, accept:false})}>Reject</button>
-            </div>
+          </div>
+          <div className='flex flex-col xs: gap-4 sm:flex sm:flex-row sm:gap-8'>
+            <button className='text-blue-400' onClick={() => handler({_id, accept:true})}>Accept</button>
+            <button ref={rejectRef} className='text-red-300' onClick={() => handler({_id, accept:false})}>Reject</button>
+          </div>
         </div>
     </div>
   )
